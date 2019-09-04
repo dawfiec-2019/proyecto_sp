@@ -1,0 +1,276 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******************************
+
+[Table of Contents]
+
+1. 1600px
+2. 1440px
+3. 1280px
+4. 1199px
+5. 1024px
+6. 991px
+7. 959px
+8. 880px
+9. 768px
+10. 767px
+11. 539px
+12. 479px
+13. 400px
+
+******************************/
+
+/************
+1. 1600px
+************/
+
+@media only screen and (max-width: 1600px)
+{
+
+
+}
+
+/************
+2. 1440px
+************/
+
+@media only screen and (max-width: 1440px)
+{
+
+}
+
+/************
+3. 1380px
+************/
+
+@media only screen and (max-width: 1380px)
+{
+	
+}
+
+/************
+3. 1280px
+************/
+
+@media only screen and (max-width: 1280px)
+{
+	.main_nav
+	{
+		display: none !important;
+	}
+	.menu
+	{
+		display: block;
+	}
+}
+
+/************
+4. 1199px
+************/
+
+@media only screen and (max-width: 1199px)
+{
+	.super_container
+	{
+		width: 100%;
+		height: auto;
+	}
+}
+
+/************
+4. 1100px
+************/
+
+@media only screen and (max-width: 1100px)
+{
+	
+}
+
+/************
+5. 1024px
+************/
+
+@media only screen and (max-width: 1024px)
+{
+	
+}
+
+/************
+6. 991px
+************/
+
+@media only screen and (max-width: 991px)
+{
+
+}
+
+/************
+7. 959px
+************/
+
+@media only screen and (max-width: 930px)
+{
+
+}
+
+/************
+8. 880px
+************/
+
+@media only screen and (max-width: 880px)
+{
+	
+}
+
+/************
+9. 768px
+************/
+
+@media only screen and (max-width: 768px)
+{
+	
+}
+
+/************
+10. 767px
+************/
+
+@media only screen and (max-width: 767px)
+{
+	.logo
+	{
+		font-size: 28px;
+	}
+}
+
+/************
+11. 575px
+************/
+
+@media only screen and (max-width: 575px)
+{
+	p
+	{
+		font-size: 13px;
+	}
+	.super_container
+	{
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 60px;
+	}
+	.header
+	{
+		height: 60px;
+		padding-top: 10px;
+		padding-left: 15px;
+	}
+	.logo
+	{
+		font-size: 24px;
+	}
+	.menu
+	{
+		height: 380px;
+		width: 220px;
+	}
+	.menu.active,
+	.header.scrolled .menu.active
+	{
+		bottom: -30px;
+	}
+	.hamburger
+	{
+		right: 15px;
+		font-size: 14px;
+	}
+	.menu_nav
+	{
+		padding-right: 15px;
+	}
+	.menu_nav ul li a
+	{
+		font-size: 14px;
+	}
+}
+
+/************
+11. 539px
+************/
+
+@media only screen and (max-width: 539px)
+{
+	.laws_container {
+		margin: 50px 0 0 0;
+	}
+	.results-container {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+	.news-content {
+		width: 100%;
+		grid-row-start: 2;
+		grid-column-start: 1;
+	}
+	.social_container {
+		grid-row-start: 3;
+		grid-column-start: 1;
+	}
+
+	.results-container{
+		text-align: center;
+	}
+
+	.results-container li {
+		display:inline;
+		margin: 0 5px 0 5px;
+	}
+
+	.results-container .result1:after {	content: "SÍ";	}
+	.results-container .result2:after {	content: "NO";	}
+	.results-container .result3:after {	content: "BL";	}
+	.results-container .result4:after {	content: "ABS";	}
+
+
+	.social_container {
+		text-align: center;
+	}
+
+	.social_container li{
+		margin:0 20px 0 20px;
+	}
+
+	.social_container img{
+		height: 25px;
+		width: 25px;
+	}
+	
+}
+
+/************
+12. 480px
+************/
+
+@media only screen and (max-width: 480px)
+{
+	
+}
+
+/************
+13. 479px
+************/
+
+@media only screen and (max-width: 479px)
+{
+	
+}
+
+/************
+14. 400px
+************/
+
+@media only screen and (max-width: 400px)
+{
+	
+}

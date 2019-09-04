@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Contactos</title>
+<meta charset=utf-8>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="vCard template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/mCustomScrollbar/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" type="text/css" href="styles/ContactosCSS/contactos.css">
+<link rel="stylesheet" type="text/css" href="styles/contactosCSS/contactos_responsive.css">
+<link href="styles/introjs.css" rel="stylesheet">
+<link rel="stylesheet" href="styles/login.css" >
+
+
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<a href="index.html"><div class="logo">Govern<span>.</span>US</div></a>
+			<div class="main_nav d-flex flex-row align-items-end justify-content-start">
+        <ul class="d-flex flex-row align-items-center justify-content-start">
+          <li><a href="index.html">Principal</a></li> 
+          <li><a data-step="1" data-intro="Consulta informacion de la Ley Orgánica que desees" href="search.html">Buscar</a></li>         
+          <li><a data-step="2" data-intro="Descubre qué hacemos" href="QueHacemos.html">Acerca de</a></li>
+          <li><a data-step="3" data-intro="Quienes somos" href="Team.html">Equipo</a></li>
+          <li class="active"><a data-step="4" data-intro="Contáctanos" href="contactos.html">Contacto</a></li>
+        </ul>
+        <a class="btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();">Ayuda guiada</a>
+
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="log">Login</button>
+
+        <div id="id01" class="modal">
+
+          <form class="modal-content animate" action="dashboard/dashboard.html">
+            <div class="imgcontainer">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <img src="images/avatar.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" id="uname" required>
+
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" id="psw" required>
+
+              <button type="submit" id="log_pop">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" id="log_cancel" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+			<!-- Menu -->
+	<div class="menu">
+		<div class="menu_content d-flex flex-row align-items-start justify-content-end">
+			<div class="hamburger ml-auto">menu</div>
+			<div class="menu_nav text-right">
+				<ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="search.html">Buscar</a></li>         
+          <li><a href="QueHacemos.html">Acerca de</a></li>
+          <li><a href="Team.html">Equipo</a></li>
+          <li><a href="contactos.html">Contacto</a></li>
+        </ul>
+			</div>
+		</div>
+	</div>
+		</div>
+	</header>
+	<div class="content_container">
+		<div class="main_content_outer justify-content-start">
+
+		<div class="row"> <!--Fila del mapa y del formulario-->
+
+			    <div class="col"><!--Columna del mapa-->
+			    	<div class="main_title_container">
+			    	<div class="main_title2">Ubicación</div>
+</div>
+      <div class="map">
+		<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 460px">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.014486149739!2d-79.96667718572081!3d-2.1481404377782116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d72f925e5bfdb%3A0x327cdb9f7f4ba3b2!2sEscuela+Superior+Polit%C3%A9cnica+del+Litoral+(ESPOL)!5e0!3m2!1ses!2sec!4v1559881737714!5m2!1ses!2sec" width="100" height="150" style="border:0px" allowfullscreen></iframe>
+</div>
+
+		</div><!--end of map-->     
+  </div><!--fin del columna del mapa-->
+
+
+			<div class="col"><!--Columna del formulario-->
+				<div class="main_title_container">
+				<div class="main_title2">Formulario de contacto</div>
+				</div>
+			<div class="containerForm">
+          <form>
+
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Nombres y Apellidos</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+
+        <div class="row">
+          <div class="col">
+          <div class="form-group">
+          <label for="exampleFormControlInput2">Correo electrónico</label>
+          <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="nombre@ejemplo.com">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="exampleFormControlSelect3">Lugar de Origen</label>
+          <select class="form-control" id="exampleFormControlSelect3">
+            <option value="" disabled selected hidden>Seleccionar lugar</option>
+            <option> Afganistán</option>
+  <option> Albania</option>
+  <option> Alemania</option>
+  <option> Andorra</option>
+  <option> Angola</option>
+  <option> Antigua y Barbuda</option>
+  <option> Arabia Saudita</option>
+  <option> Argelia</option>
+  <option> Argentina</option>
+  <option> Armenia</option>
+  <option> Australia</option>  
+    <option> Austria</option>
+  <option> Azerbaiyán</option>
+  <option> Bahamas</option>
+  <option> Bangladés</option>
+  <option> Barbados</option>
+  <option> Baréin</option>
+  <option> Bélgica</option>
+  <option> Belice</option>
+  <option> Benín</option>
+  <option> Bielorrusia</option>
+  <option> Birmania</option>
+  <option> Bolivia</option>
+  <option> Bosnia y Herzegovina</option>
+  <option> Botsuana</option>
+  <option> Brasil</option>
+  <option> Brunéi</option>
+  <option> Bulgaria</option>
+  <option> Burkina Faso</option>
+  <option> Burundi</option>
+  <option> Bután</option>
+  <option> Cabo Verde</option>
+  <option> Camboya</option>
+  <option> Camerún</option>
+  <option> Canadá</option>
+  <option> Catar</option>
+  <option> Chad</option>
+  <option> Chile</option>
+  <option> China</option>
+  <option> Chipre</option>
+  <option> Ciudad del Vaticano</option>
+  <option> Colombia</option>
+  <option> Comoras</option>
+  <option> Corea del Norte</option>
+  <option> Corea del Sur</option>
+  <option> Costa de Marfil</option>
+  <option> Costa Rica</option>
+  <option> Croacia</option>
+  <option> Cuba</option>
+  <option> Dinamarca</option>
+  <option> Dominica</option>
+  <option> Ecuador</option>
+  <option> Egipto</option>
+  <option> El Salvador</option>
+  <option> Emiratos Árabes Unidos</option>
+  <option> Eritrea</option>
+  <option> Eslovaquia</option>
+  <option> Eslovenia</option>
+  <option> España</option>
+  <option> Estados Unidos</option>
+  <option> Estonia</option>
+  <option> Etiopía</option>
+  <option> Filipinas</option>
+  <option> Finlandia</option>
+  <option> Fiyi</option>
+  <option> Francia</option>
+  <option> Gabón</option>
+  <option> Gambia</option>
+  <option> Georgia</option>
+  <option> Ghana</option>
+  <option> Granada</option>
+  <option> Grecia</option>
+  <option> Guatemala</option>
+  <option> Guyana</option>
+  <option> Guinea</option>
+  <option> Guinea ecuatorial</option>
+  <option> Guinea-Bisáu</option>
+  <option> Haití</option>
+  <option> Honduras</option>
+  <option> Hungría</option>
+  <option> India</option>
+  <option> Indonesia</option>
+  <option> Irak</option>
+  <option> Irán
+   </option>
+  <option> Irlanda
+   </option>
+  <option> Islandia
+   </option>
+  <option> Islas Marshall
+   </option>
+  <option> Islas Salomón
+   </option>
+  <option> Israel
+   </option>
+  <option> Italia
+   </option>
+  <option> Jamaica
+   </option>
+  <option> Japón
+   </option>
+  <option> Jordania
+   </option>
+  <option> Kazajistán
+   </option>
+  <option> Kenia
+   </option>
+  <option> Kirguistán
+   </option>
+  <option> Kiribati
+   </option>
+  <option> Kuwait
+   </option>
+  <option> Laos
+   </option>
+  <option> Lesoto
+   </option>
+  <option> Letonia
+   </option>
+  <option> Líbano
+   </option>
+  <option> Liberia
+   </option>
+  <option> Libia
+   </option>
+  <option> Liechtenstein
+   </option>
+  <option> Lituania
+   </option>
+  <option> Luxemburgo
+   </option>
+  <option> Madagascar
+   </option>
+  <option> Malasia
+   </option>
+  <option> Malaui
+   </option>
+  <option> Maldivas
+   </option>
+  <option> Malí
+   </option>
+  <option> Malta
+   </option>
+  <option> Marruecos
+   </option>
+  <option> Mauricio
+   </option>
+  <option> Mauritania
+   </option>
+  <option> México
+   </option>
+  <option> Micronesia
+   </option>
+  <option> Moldavia
+   </option>
+  <option> Mónaco
+   </option>
+  <option> Mongolia
+   </option>
+  <option> Montenegro
+   </option>
+  <option> Mozambique
+   </option>
+  <option> Namibia
+   </option>
+  <option> Nauru
+   </option>
+  <option> Nepal
+   </option>
+  <option> Nicaragua
+   </option>
+  <option> Níger
+   </option>
+  <option> Nigeria
+   </option>
+  <option> Noruega
+   </option>
+  <option> Nueva Zelanda
+   </option>
+  <option> Omán
+   </option>
+  <option> Países Bajos
+   </option>
+  <option> Pakistán
+   </option>
+  <option> Palaos
+   </option>
+  <option> Panamá
+   </option>
+  <option> Papúa Nueva Guinea
+   </option>
+  <option> Paraguay
+   </option>
+  <option> Perú
+   </option>
+  <option> Polonia
+   </option>
+  <option> Portugal
+   </option>
+  <option> Reino Unido
+   </option>
+  <option> República Centroafricana
+   </option>
+  <option> República Checa
+   </option>
+  <option> República de Macedonia
+   </option>
+  <option> República del Congo
+   </option>
+  <option> República Democrática del Congo
+   </option>
+  <option> República Dominicana
+   </option>
+  <option> República Sudafricana
+   </option>
+  <option> Ruanda
+   </option>
+  <option> Rumanía
+   </option>
+  <option> Rusia
+   </option>
+  <option> Samoa
+   </option>
+  <option> San Cristóbal y Nieves
+   </option>
+  <option> San Marino
+   </option>
+  <option> San Vicente y las Granadinas
+   </option>
+  <option> Santa Lucía
+   </option>
+  <option> Santo Tomé y Príncipe
+   </option>
+  <option> Senegal
+   </option>
+  <option> Serbia
+   </option>
+  <option> Seychelles
+   </option>
+  <option> Sierra Leona
+   </option>
+  <option> Singapur
+   </option>
+  <option> Siria
+   </option>
+  <option> Somalia
+   </option>
+  <option> Sri Lanka
+   </option>
+  <option> Suazilandia
+   </option>
+  <option> Sudán
+   </option>
+  <option> Sudán del Sur
+   </option>
+  <option> Suecia
+   </option>
+  <option> Suiza
+   </option>
+  <option> Surinam
+   </option>
+  <option> Tailandia
+   </option>
+  <option> Tanzania
+   </option>
+  <option> Tayikistán
+   </option>
+  <option> Timor Oriental
+   </option>
+  <option> Togo
+   </option>
+  <option> Tonga
+   </option>
+  <option> Trinidad y Tobago
+   </option>
+  <option> Túnez
+   </option>
+  <option> Turkmenistán
+   </option>
+  <option> Turquía
+   </option>
+  <option> Tuvalu
+   </option>
+  <option> Ucrania
+   </option>
+  <option> Uganda
+   </option>
+  <option> Uruguay
+   </option>
+  <option> Uzbekistán
+   </option>
+  <option> Vanuatu
+   </option>
+  <option> Venezuela
+   </option>
+  <option> Vietnam
+   </option>
+  <option> Yemen
+   </option>
+  <option> Yibuti
+   </option>
+  <option> Zambia
+   </option>
+  <option> Zimbabue </option>
+  </select>
+  </div>
+ </div>
+</div>
+     
+
+  <label id="exampleFormControlSelect2">Fecha de Nacimiento</label>
+    <div class="row">
+      <div class="col">
+         <div class="form-group">
+          <select class="form-control" id="exampleFormControlSelect5">
+            <option value="" disabled selected hidden>Dia</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+          </select>
+        </div>
+        </div>
+        <div class="col">
+        <div class="form-group">
+          <select class="form-control" id="exampleFormControlSelect6">
+            <option value="" disabled selected hidden>Mes</option>
+            <option>Enero</option>
+            <option>Febrero</option>
+            <option>Marzo</option>
+            <option>Abril</option>
+            <option>Mayo</option>
+            <option>Junio</option>
+            <option>Julio</option>
+            <option>Agosto</option>
+            <option>Septiembre</option>
+            <option>Octubre</option>
+            <option>Noviembre</option>
+            <option>Diciembre</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+  <div class="form-group">
+          <select class="form-control" id="exampleFormControlSelect7">
+            <option value="" disabled selected hidden>Año</option>
+            <option>1980</option>
+            <option>1981</option>
+            <option>1982</option>
+            <option>1983</option>
+            <option>1984</option>
+            <option>1985</option>
+            <option>1986</option>
+            <option>1987</option>
+            <option>1988</option>
+            <option>1989</option>
+            <option>1990</option>
+            <option>1991</option>
+            <option>1992</option>
+            <option>1993</option>
+            <option>1994</option>
+            <option>1995</option>
+            <option>1996</option>
+            <option>1997</option>
+            <option>1998</option>
+            <option>1999</option>
+            <option>2000</option>
+            <option>2001</option>
+            <option>2002</option>
+            <option>2003</option>
+            <option>2004</option>
+            <option>2005</option>
+            <option>2006</option>
+            <option>2007</option>
+            <option>2008</option>
+            <option>2009</option>
+            <option>2010</option>
+          </select>
+        </div>
+  </div>
+  </div>
+
+
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Mensaje</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Enviar</button>
+      </form>
+      </div> <!--Container form-->
+  </div><!--Fin columna del formulario-->
+  
+</div><!--fin del row general-->
+
+<div style="text-align:center;">
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>  
+</div>
+		</div>
+	</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/Isotope/fitcolumns.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/portfolio.js"></script>
+<script src="js/intro.js"></script>
+
+</body>
+</html>

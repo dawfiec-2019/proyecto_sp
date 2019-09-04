@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Govern.US</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="vCard template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/mCustomScrollbar/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="styles/index_responsive.css">
+    <link href="styles/introjs.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/login.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Required Stylesheets -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"
+    />
+
+</head>
+<body>
+    <div class="super_container" id="principal">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                <a href="index.html"><div class="logo">Govern<span>.</span>US</div></a>
+                <div class="main_nav d-flex flex-row align-items-end justify-content-start">
+                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                        <li class="active"><a href="index.html">Principal</a></li>	
+						<li><a data-step="1" data-intro="Consulta informacion de la Ley Orgánica que desees" href="search.html">Buscar</a></li>                        <li><a data-step="2" data-intro="Descubre qué hacemos" href="QueHacemos.html">Acerca de</a></li>
+                        <li><a data-step="3" data-intro="Quienes somos" href="Team.html">Equipo</a></li>
+                        <li><a data-step="4" data-intro="Contáctanos" href="contactos.html">Contacto</a></li>
+                    </ul>
+                    <a class="btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();">Ayuda guiada</a>
+
+
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="log">Login</button>
+
+                    <div id="id01" class="modal">
+
+						<form class="modal-content animate" action="dashboard/dashboard.html">                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <img src="images/avatar.png" alt="Avatar" class="avatar">
+                            </div>
+
+                            <div class="container">
+                                <label for="uname"><b>Username</b></label>
+                                <input type="text" placeholder="Enter Username" id="uname" required>
+
+                                <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" id="psw" required>
+
+                                <button type="submit" id="log_pop">Login</button>
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                                </label>
+                            </div>
+
+                            <div class="container" style="background-color:#f1f1f1">
+                                <button type="button" id="log_cancel" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                <span class="psw">Forgot <a href="#">password?</a></span>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- Menu -->
+                <div class="menu">
+                    <div class="menu_content d-flex flex-row align-items-start justify-content-end">
+                        <div class="hamburger ml-auto">menu</div>
+                        <div class="menu_nav text-right">
+                            <ul>
+                                <li><a href="index.html">Principal</a></li>	
+                                <li><a href="search.html">Buscar</a></li>					
+                                <li><a href="QueHacemos.html">Acerca de</a></li>
+                                <li><a href="Team.html">Equipo</a></li>
+                                <li><a href="contactos.html">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        
+            <!-- <div id="laws_app">
+                
+                <div class="col text-left">
+        
+            <b-table striped hover :items="laws" :fields="fields"></b-table>  
+        </div>
+
+            <div class="container">
+                <li v-for="ley in laws">
+                    {{ley.summary}}
+                </li>
+
+            </div>
+
+            </div> -->
+
+        <div class="laws_container">
+            <div id="laws_app">
+                <section v-for="law in laws">
+                    <div class="jumbotron">
+                        <div class="news-content">
+                            <a v-bind:href="'single-page.html?law_id='+law.id" title="">
+                                <h1 class="display-4">{{ law.name }}</h1>
+                            </a>
+                                <p class="lead">{{ law.description }}</p>
+                        </div>
+                        <div class="results-container">
+
+                            <ul>
+                                <li class="result1"><div class="result green"><span class="result-text">{{ law.summary.SI }}</span></div></li>
+                                <li class="result2"><div class="result red"><span class="result-text">{{ law.summary.NO }}</span></div></li>                        
+                                <li class="result3"><div class="result grey"><span class="result-text">{{ law.summary.BLANCO }}</span></div></li>                      
+                                <li class="result4"><div class="result blue"><span class="result-text">{{ law.summary.ABSTENCION }}</span></div></li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Social -->
+                        <div class="social_container">
+                            <ul>
+                                <li><a href="#"><img src="images/facebookicon.png" alt="facebook"/></a></li>
+                                <li><a href="#"><img src="images/twittericon.png" alt="twitter"/></a></li>
+                                <li><a href="#"><img src="images/linkedinicon.png" alt="linkedin" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+
+            
+
+        
+
+    </div>
+    <div style="text-align:left;" class="copyright">
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+
+
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap-4.1.2/popper.js"></script>
+    <script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="plugins/mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="plugins/Isotope/fitcolumns.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    
+	<script src="js/intro.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/index.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+<!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
+
+    <!-- Required scripts -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+         new Vue({
+        el:'#principal',
+    //import axios from 'axios';
+        /*beforeCreate: function(){
+            console.log("a")
+            //console.log("as");
+            this.$nextTick(function(){
+                const path = 'http://localhost:8000/api/laws/';
+                axios.get(path).then(function(response){
+                    console.log("a")
+                    this.laws = response.data;
+                    //this.laws = this.laws[0]
+                    //console.log(this.rate_user);
+                    console.log(this.laws);
+                    //console.log(this.laws[0])
+                    //console.log(this.leyes.length);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            }) 
+        },*/
+        created: function(){
+            //console.log(this.leyes)
+            this.getLaws();
+
+        },
+        data:{
+            fields:[
+
+                {key:'id', label:'ID'},
+                //{key: 'autores', label:'Autores'},
+                ],
+                laws:[]
+        },
+        methods:{
+
+            getLaws: function(){
+                const path = 'http://localhost:8000/api/laws/';
+                axios.get(path).then((response)=> {
+                    this.laws = response.data;
+                    //console.log(this.rate_user);
+                    console.log(this.laws);
+                    console.log(response.data);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            }
+        }
+        ,computed: {
+          searchlaw: function(){
+            console.log(this.laws)
+            return this.laws.filter((law)=> law.name.includes(this.name));
+          }
+      }
+    });
+    
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Búsqueda</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="vCard template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/mCustomScrollbar/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" type="text/css" href="styles/search.css">
+<link rel="stylesheet" type="text/css" href="styles/search_responsive.css">
+
+</head>
+<body>
+
+<div class="super_container" id="main1">
+	
+	<!-- Header -->
+	
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<a href="index.html"><div class="logo">Govern<span>.</span>US</div></a>
+			<div class="main_nav d-flex flex-row align-items-end justify-content-start">
+				<ul class="d-flex flex-row align-items-center justify-content-start">
+					<li><a href="index.html">Principal</a></li>	
+					<li class="active"><a data-step="1" data-intro="Consulta informacion de la Ley Orgánica que desees" href="search.html">Buscar</a></li>	
+					<li><a data-step="2" data-intro="Descubre qué hacemos" href="QueHacemos.html">Acerca de</a></li>
+					<li><a data-step="3" data-intro="Quienes somos" href="Team.html">Equipo</a></li>
+					<li><a data-step="4" data-intro="Contáctanos" href="contactos.html">Contacto</a></li>
+				</ul>
+				<a class="btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();">Ayuda guiada</a>
+
+				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="log">Login</button>
+
+				<div id="id01" class="modal">
+
+					<form class="modal-content animate" action="dashboard/dashboard.html">
+						<div class="imgcontainer">
+							<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+							<img src="images/avatar.png" alt="Avatar" class="avatar">
+						</div>
+
+						<div class="container">
+							<label for="uname"><b>Username</b></label>
+							<input id="sesion_input" type="text" placeholder="Enter Username" name="uname" required>
+
+							<label for="psw"><b>Password</b></label>
+							<input type="password" placeholder="Enter Password" name="psw" required>
+
+							<button type="submit" id="log_pop">Login</button>
+							<label>
+								<input type="checkbox" checked="checked" name="remember"> Remember me
+							</label>
+						</div>
+
+						<div class="container" style="background-color:#f1f1f1">
+							<button type="button" id="log_cancel" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+							<span class="psw">Forgot <a href="#">password?</a></span>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- Menu -->
+	<!-- Menu -->
+                <div class="menu">
+                    <div class="menu_content d-flex flex-row align-items-start justify-content-end">
+                        <div class="hamburger ml-auto">menu</div>
+                        <div class="menu_nav text-right">
+                            <ul>
+                                <li><a href="index.html">Principal</a></li>	
+                                <li><a href="search.html">Buscar</a></li>					
+                                <li><a href="QueHacemos.html">Acerca de</a></li>
+                                <li><a href="Team.html">Equipo</a></li>
+                                <li><a href="contactos.html">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+	<div class="content_container">
+		<div class="wrap">
+			<div class="search">
+				<input id="busqueda" type="text" class="searchTerm" placeholder="Búsqueda....">
+				<button v-on:click="busqueda" type="submit" class="searchButton">
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="laws_container">
+		<div class="row">
+			<div v-for="law in laws" class="col-md-6" v-bind:id="law.id">
+				<div class="container" id="contenedor_leyes">
+					<h1 class="display-4">{{law.title}}</h1>
+					<p class="lead">{{texto}}</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" v-bind:href="'single-page.html?law_id='+law.id" role="button" type="submit">Ver mas</a>
+					</p>
+				</div>
+				 
+
+
+			</div>
+
+<!--
+			<div class="col">
+				<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de las Personas Adultas Mayores</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+
+				
+			</div>
+			<div class="col">
+				<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica Reformatoria a la Ley Orgánica de Servicio Público</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+
+
+				
+			</div>
+
+			
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de las Personas Adultas Mayores</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+
+				
+			</div>
+			<div class="col">
+				<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de las Personas Adultas Mayores</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+
+
+				
+			</div>
+
+			
+		</div>-->
+</div>
+
+	<!--
+		<section>
+			<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de las Personas Adultas Mayores</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+		</section>
+		<section>
+			<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica Reformatoria a la Ley Orgánica de Servicio Público</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+		</section>
+		<section>
+			<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de la Defensoría del Pueblo</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+		</section>-->
+		<!--<div class="row justify-content-center">
+			<div class="row">
+				<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de las Personas Adultas Mayores</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="jumbotron">
+					<h1 class="display-4">Ley Orgánica de las Personas Adultas Mayores</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis elit tellus. Aenean in neque augue. Phasellus et tempus nisi. Proin tempor sem a aliquet lacinia. Proin mollis nec purus sit amet feugiat. Sed id metus ultricies, vulputate urna at, cursus dui. Suspendisse eleifend leo sit amet sem suscipit, ut lacinia purus convallis. Proin a dapibus metus. Proin nec tincidunt massa.</p>
+					<hr class="my-4">
+					
+					<p class="lead">
+						<a class="btn btn-primary btn-lg" href="#" role="button">Ver mas</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>-->
+	
+	</div>
+<!--
+<div align='center'>
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+<!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>-->
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><!--</div>-->
+		
+	
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/Isotope/fitcolumns.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script type="text/javascript" src="js/intro.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/busqueda-search.js"></script>
+<script src="js/portfolio.js"></script>
+<script type="text/javascript" src="js/searchvuejs.js"></script>
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>

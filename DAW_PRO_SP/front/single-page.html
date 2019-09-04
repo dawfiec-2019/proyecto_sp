@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ley Orgánica de las Personas Adultas Mayores</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="vCard template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/mCustomScrollbar/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/single-page.css">
+<link rel="stylesheet" type="text/css" href="styles/single-page_responsive.css">
+<link href="styles/introjs.css" rel="stylesheet">
+<link rel="stylesheet" href="styles/login.css" >
+</head>
+<body>
+
+<div class="super_container" id="principal">
+	
+	<!-- Header -->
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<a href="index.html"><div class="logo">Govern<span>.</span>US</div></a>
+			<div class="main_nav d-flex flex-row align-items-end justify-content-start">
+				<ul class="d-flex flex-row align-items-center justify-content-start">
+					<li><a href="index.html">Principal</a></li>	
+					<li class="active"><a data-step="1" data-intro="Consulta informacion de la Ley Orgánica que desees" href="search.html">Buscar</a></li>	
+					<li><a data-step="2" data-intro="Descubre qué hacemos" href="QueHacemos.html">Acerca de</a></li>
+					<li><a data-step="3" data-intro="Quienes somos" href="Team.html">Equipo</a></li>
+					<li><a data-step="4" data-intro="Contáctanos" href="contactos.html">Contacto</a></li>
+				</ul>
+				<a class="btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();">Ayuda guiada</a>
+
+				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="log">Login</button>
+
+				<div id="id01" class="modal">
+
+					<form class="modal-content animate" action="dashboard/dashboard.html">
+						<div class="imgcontainer">
+							<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+							<img src="images/avatar.png" alt="Avatar" class="avatar">
+						</div>
+
+						<div class="container">
+							<label for="uname"><b>Username</b></label>
+							<input id="sesion_input" type="text" placeholder="Enter Username" name="uname" required>
+
+							<label for="psw"><b>Password</b></label>
+							<input type="password" placeholder="Enter Password" name="psw" required>
+
+							<button type="submit" id="log_pop">Login</button>
+							<label>
+								<input type="checkbox" checked="checked" name="remember"> Remember me
+							</label>
+						</div>
+
+						<div class="container" style="background-color:#f1f1f1">
+							<button type="button" id="log_cancel" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+							<span class="psw">Forgot <a href="#">password?</a></span>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- Menu -->
+	<!-- Menu -->
+                <div class="menu">
+                    <div class="menu_content d-flex flex-row align-items-start justify-content-end">
+                        <div class="hamburger ml-auto">menu</div>
+                        <div class="menu_nav text-right">
+                            <ul>
+                                <li><a href="index.html">Principal</a></li>	
+                                <li><a href="search.html">Buscar</a></li>					
+                                <li><a href="QueHacemos.html">Acerca de</a></li>
+                                <li><a href="Team.html">Equipo</a></li>
+                                <li><a href="contactos.html">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <!-- Content -->
+	<div class="content_container">
+		<div class="main_content_outer d-flex flex-xl-row flex-column align-items-start justify-content-start">
+
+			<!-- General Information -->
+			<div id="stats-app" class="general_info d-flex flex-xl-column flex-md-row flex-column">
+				<div>
+					<div class="general_info_image">
+						<div class="background_image" style="background-image:url(images/chart.png)"></div>
+					</div>
+				</div>
+				<div class="general_info_content">
+						<div class="general_info_title">Resumen</div>
+
+						<ul class="general_info_list">
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="color-label green">{{ law.affirmative_votes }}</div>
+								<div class="general_info_text"><span>votos afirmativos</span></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="color-label red">{{ law.negative_votes }}</div>
+								<div class="general_info_text"><span>votos negativos</span></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="color-label grey">{{ law.blank_votes }}</div>
+								<div class="general_info_text"><span>voto blanco</span></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="color-label blue">{{ law.abstentions }}</div>
+								<div class="general_info_text"><span>abstención</span></div>
+							</li>
+						</ul>
+
+						<!-- Social -->
+						<div class="social_container">
+							<ul>
+								<li><a href="#"><img src="images/facebookicon.png" /></a></li>
+								<li><a href="#"><img src="images/twittericon.png" /></a></li>
+								<li><a href="#"><img src="images/linkedinicon.png" /></a></li>
+							</ul>
+						</div>
+
+				</div>
+			</div>
+
+			<!-- Main Content -->
+
+			<div class="main_content">
+                
+                <div id="information-app">
+                    <div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+                        <div class="main_subtitle">{{ law.pub_date }}</div>
+                        <div class="main_title">{{ law.title }}</div>
+                    </div>
+
+                    <div class="about_content">
+                        <div class="about_text">
+                            <p>{{ laws.base_description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+				<div id="comments-app" class="container">
+					<div class="row">
+					<!-- Contenedor Principal -->
+					    <div class="comments-container">
+							<ul id="comments-list" class="comments-list">
+                                <li v-for="comment in law_comments">
+                                    <div class="comment-main-level">
+                                        <!-- Avatar -->
+                                        <div class="comment-avatar"><img v-bind:src="'images/' + comment.user.photo" alt=""></div>
+                                        <!-- Contenedor del Comentario -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name"><a href="">{{ comment.user.name }}</a></h6>
+                                                <span>{{ comment.comment.pub_date }}</span>
+                                                <i class="fa fa-reply"></i>
+                                                <i class="fa fa-heart"></i>
+                                            </div>
+                                            <div class="comment-content">{{ comment.comment.comment }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+							</ul>
+						</div>
+					</div>
+                        <div class="form-container">
+                            <textarea class="comment-form" onkeyup="auto_grow(this)" placeholder="Deja un comentario"></textarea>
+                            <button class="comment-button" onclick="comment()">Comentar</button>
+                        </div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	
+</div>
+
+<div id="single-law-app"></div>
+<div style="text-align:left;" class="copyright">
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/progressbar/progressbar.js"></script>
+<script src="plugins/mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="js/single-page.js"></script>
+<script src="js/custom.js"></script>
+
+<script type="text/javascript" src="js/intro.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+<!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
+
+    <!-- Required scripts -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+<script>
+	
+	new Vue({
+        el:'#principal',
+    
+        created: function(){
+            //console.log(this.leyes)
+            this.getLaws();
+            this.getURL();
+
+        },
+        data:{
+            fields:[
+
+                {key:'id', label:'ID'},
+                //{key: 'autores', label:'Autores'},
+                ],
+                laws:[],
+
+
+        },
+        methods:{
+        	getURL: function(){
+        		let sPageURL = window.location.search.substring(1);
+    			let sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == 'law_id')
+        {
+            console.log(sParameterName[1]);
+        }
+    }
+        	},
+            getLaws: function(){
+                const path = 'http://localhost:8000/api/laws/';
+                axios.get(path).then((response)=> {
+                    this.laws = response.data;
+                    //console.log(this.rate_user);
+                    console.log(this.laws);
+                    console.log(response.data);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            }
+        }
+        ,computed: {
+          searchlaw: function(){
+            console.log(this.laws)
+            return this.laws.filter((law)=> law.name.includes(this.name));
+          }
+      }
+    });
+
+</script>
+
+</body>
+</html>
