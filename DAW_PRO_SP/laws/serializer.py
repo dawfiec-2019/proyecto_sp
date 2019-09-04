@@ -5,7 +5,7 @@ from rest_framework import serializers
 
 class AsambleistaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Asableista
+        model = Asambleista
         fields = '__all__'
 
 class UsuarioSerializer(serializers.ModelSerializer):

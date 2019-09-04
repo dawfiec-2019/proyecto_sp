@@ -3,7 +3,7 @@ from rest_framework import routers
 from .viewsets import *
 
 router = routers.SimpleRouter()
-router.register('asambleista',AsableistaViewSet)
+router.register('asambleista',AsambleistaViewSet)
 router.register('usuario',UsuarioViewSet)
 router.register('ley',LeyViewSet)
 router.register('persona',PersonaViewSet)
