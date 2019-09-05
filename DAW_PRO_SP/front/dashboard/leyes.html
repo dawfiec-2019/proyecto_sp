@@ -105,11 +105,15 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Administrar leyes</h1>
+				<a class="btn btn-success" href="creacionleyes.html" role="button">Ingresar nueva Ley</a>
 			</div>
 		</div><!--/.row-->
 				
 <!-- 		<DESDE AQUI>
  -->
+
+
+
 		<div class="row" v-for="law in laws">
 			<!-- <div class="col-lg-12"> -->
 				<!-- /.panel-->
@@ -117,8 +121,8 @@
   
   <div class="card-body">
     <h5 class="card-title">{{law.name}}</h5>
-    <a v-bind:href="'edicionley.html?law_id='+law.id" class="btn btn-primary">Editar</a>
-    <a href="#" class="btn btn-danger">Eliminar</a>
+    <a v-bind:href="'edicionley.html?law_id='+law.id" class="btn btn-primary">Editar/Eliminar</a>
+    
   </div>
 </div>
 
