@@ -25,18 +25,24 @@ var principal = new Vue({
             //console.log(this.leyes)
             this.getLaws();
             this.getVotes();
+            this.getComments();
+            this.getUsers();
 
         },
         data:{
                 fields:[
 
-                {key:'id', label:'ID'},
+                {key:'name', label:'Ley'},
                 //{key: 'autores', label:'Autores'},
                 ],
                 laws:[],
                 numero_leyes:"",
                 numero_votos:"",
                 votos:[],
+                cometarios:[],
+                numero_comentarios:"",
+                usuarios:[],
+                numero_usuarios:"",
         },
         methods:{
 
@@ -46,9 +52,9 @@ var principal = new Vue({
                     this.laws = response.data;
                     this.numero_leyes = this.laws.length;
                     //console.log(this.rate_user);
-                    console.log(this.laws);
-                    console.log(response.data);
-                    console.log(this.numero_leyes);
+                    //console.log(this.laws);
+                    //console.log(response.data);
+                    //console.log(this.numero_leyes);
                     //this.getRates();
                 })
                 .catch((error)=>{
@@ -62,20 +68,52 @@ var principal = new Vue({
                     this.votos = response.data;
                     this.numero_votos = this.votos.length;
                     //console.log(this.rate_user);
-                    console.log(this.votos);
+                    //console.log(this.votos);
                     //console.log(response.data);
-                    console.log(this.numero_votos);
+                    //console.log(this.numero_votos);
                     //this.getRates();
                 })
                 .catch((error)=>{
                     console.log(error)
                 });
 
+            },
+            getComments: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/comentario/';
+                axios.get(path).then((response)=> {
+                    this.comentario = response.data;
+                    this.numero_comentarios = this.comentario.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    console.log(this.numero_comentarios.length);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            },
+            getUsers: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/usuario/';
+                axios.get(path).then((response)=> {
+                    this.usuarios = response.data;
+                    this.numero_usuarios = this.usuarios.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    //console.log(this.numero_votos);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
             }
         }
         ,computed: {
           searchlaw: function(){
-            console.log(this.laws)
+            //console.log(this.laws)
             return this.laws.filter((law)=> law.name.includes(this.name));
           }
       },
