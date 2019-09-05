@@ -117,7 +117,7 @@
   
   <div class="card-body">
     <h5 class="card-title">{{law.name}}</h5>
-    <a href="edicionley.html" class="btn btn-primary">Editar</a>
+    <a v-bind:href="'edicionley.html?law_id='+law.id" class="btn btn-primary">Editar</a>
     <a href="#" class="btn btn-danger">Eliminar</a>
   </div>
 </div>

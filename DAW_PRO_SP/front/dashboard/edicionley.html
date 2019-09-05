@@ -10,11 +10,11 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-	<link href="css/stepper.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" type="text/css" href="css/data.css">
+	<link href="css/stepper.css" rel="stylesheet"><!-- 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+	<link rel="stylesheet" type="text/css" href="css/edicion.css">
 
-	 -->
+	
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	
@@ -120,23 +120,61 @@
 						
 						<form @onSubmit="onSubmit">
 
-							<div clas="form-group row">
-								<label for="nombre" class="col-sm-2 col-form-label">
-									Nombre de la Ley
+
+							<div clas="col-sm-6">
+								<label for="id_ley" class="col-sm-6">
+									Identificador unico
 								</label>
 								<div class="col-sm-6">
-									<input type="text" name="titulo" placeholder="Nombre de la ley" class="form-control">
+									<input type="text" name="" name="id_ley" placeholder="Identificador" rows="3" class="form-control" v-model="id_ley">
 
 								</div>
 								
 							</div>
 
-							<div clas="form-group row">
-								<label for="descripcion" class="col-sm-2 col-form-label">
+
+
+							<div clas="col-sm-6">
+								<label for="nombre" class="col-sm-6">
+									Nombre Oficial de la Ley
+								</label>
+								<div class="col-sm-6">
+									<textarea name="titulo" placeholder="titulo" rows="3" class="form-control" v-model="nombre_oficial"></textarea>
+
+								</div>
+								
+							</div>
+
+							<div clas="col-sm-6">
+								<label for="nombre" class="col-sm-6">
+									Nombre Publico de la Ley
+								</label>
+								<div class="col-sm-6">
+									<textarea name="titulo" placeholder="titulo" rows="3" class="form-control" v-model="nombre_publico"></textarea>
+
+								</div>
+								
+							</div>
+
+							<div clas="col-sm-6">
+								<label for="descripcion" class="col-sm-6">
 									Descripcion
 								</label>
 								<div class="col-sm-6">
-									<input type="text" name="titulo" placeholder="Descripcion" class="form-control">
+									<textarea name="descripcion" placeholder="Descripcion" rows="3" class="form-control" v-model="descripcion"></textarea>
+
+								</div>
+								
+							</div>
+
+
+
+							<div clas="col-sm-6">
+								<label for="fecha" class="col-sm-6">
+									Fecha
+								</label>
+								<div class="col-sm-6">
+									<input type="text" name="" name="fecha" placeholder="Fecha de publicacion" rows="3" class="form-control" v-model="fecha">
 
 								</div>
 								
@@ -144,7 +182,9 @@
 
 							<div class="rows">
 								<div class="col text-left">
-									
+									<button type="submit" class="btn btn-primary">Editar</button>
+
+									<a class="btn btn-secondary" href="leyes.html" role="button">Cancelar</button>
 
 								</div>
 
@@ -193,8 +233,174 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
 	<script src="https://unpkg.com/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="js/datos_admin.js"></script>
+	<!-- <script src="js/datos_admin.js"></script> -->
 
+	<script>
+		
+		var principal = new Vue({
+        el:'#principal',
+    //import axios from 'axios';
+        /*beforeCreate: function(){
+            console.log("a")
+            //console.log("as");
+            this.$nextTick(function(){
+                const path = 'http://localhost:8000/api/laws/';
+                axios.get(path).then(function(response){
+                    console.log("a")
+                    this.laws = response.data;
+                    //this.laws = this.laws[0]
+                    //console.log(this.rate_user);
+                    console.log(this.laws);
+                    //console.log(this.laws[0])
+                    //console.log(this.leyes.length);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            }) 
+        },*/
+        created: function(){
+            //console.log(this.leyes)
+            this.getLaws();
+            this.getVotes();
+            this.getComments();
+            this.getUsers();
+            this.getURL();
+
+        },
+        data:{
+        	id_ley:'',
+             nombre_oficial:'Default',
+             nombre_publico:'Default',
+             fecha:'',
+             descripcion:''   
+
+        },
+        methods:{
+
+        	getURL(){
+
+        		let sPageURL = window.location.search.substring(1);
+    			let sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == 'law_id')
+        {
+        	console.log(sParameterName[1]);
+            return sParameterName[1];
+        }
+    		}
+
+
+
+        	},
+
+
+
+        	onSubmit(evt){
+        		evt.preventDefault()
+
+        	},
+
+            getLaws: function(){
+            	console.log(this.getURL());
+
+                const path = 'http://localhost:8000/api/laws/'+this.getURL()+'/';
+
+                console.log(path);
+
+
+                axios.get(path).then((response)=> {
+                    //this.laws = response.data;
+                    //this.numero_leyes = this.laws.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.laws);
+                    this.id_ley= response.data.id;
+                    this.nombre_oficial = response.data.name;
+                    this.nombre_publico = response.data.name;
+                    this.fecha = response.data.pub_date;
+                    this.descripcion = response.data.name;
+                    console.log(response.data);
+                    //console.log(this.numero_leyes);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            },
+            getVotes: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/voto/';
+                axios.get(path).then((response)=> {
+                    this.votos = response.data;
+                    this.numero_votos = this.votos.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    //console.log(this.numero_votos);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+
+            },
+            getComments: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/comentario/';
+                axios.get(path).then((response)=> {
+                    this.comentario = response.data;
+                    this.numero_comentarios = this.comentario.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    console.log(this.numero_comentarios.length);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            },
+            getUsers: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/usuario/';
+                axios.get(path).then((response)=> {
+                    this.usuarios = response.data;
+                    this.numero_usuarios = this.usuarios.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    //console.log(this.numero_votos);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            }
+        }
+        ,computed: {
+          searchlaw: function(){
+            //console.log(this.laws)
+            return this.laws.filter((law)=> law.name.includes(this.name));
+          }
+      },
+      numleyes: function(){
+        return this.laws.length
+      }
+    });
+    
+
+
+    
+
+
+
+
+
+
+	</script>
 
 
 	
