@@ -85,9 +85,9 @@
 		<ul class="nav menu">
 			<li><a href="dashboard.html"><em class="fa fa-dashboard">&nbsp;</em> Resumen</a></li>
 			<li><a href="insertacion.html"><em class="fa fa-plus">&nbsp;</em> Insertacion</a></li>
-			<li class="active"><a href="leyes.html"><em class="fa fa-file-text">&nbsp;</em> Leyes</a></li>
+			<li><a href="leyes.html"><em class="fa fa-file-text">&nbsp;</em> Leyes</a></li>
 			<li><a href="comentarios.html"><em class="fa fa-comments">&nbsp;</em> Comentarios</a></li>
-			<li><a href="usuarios.html"><em class="fa fa-users	">&nbsp;</em> Usuarios</a></li>	
+			<li class="active"><a href="usuarios.html"><em class="fa fa-users	">&nbsp;</em> Usuarios</a></li>	
 			<li><a href="../index.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -104,8 +104,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Administrar Leyes</h1>
-				<a class="btn btn-success" href="creacionleyes.html" role="button">Ingresar nueva Ley</a>
+				<h1 class="page-header">Administrar Usuarios</h1>
 			</div>
 		</div><!--/.row-->
 				
@@ -114,14 +113,13 @@
 
 
 
-		<div class="row" v-for="law in laws">
+		<div class="row" v-for="usuario in usuarios">
 			<!-- <div class="col-lg-12"> -->
 				<!-- /.panel-->
 			<div class="card w-100"  >
-  
   <div class="card-body">
-    <h5 class="card-title">{{law.name}}</h5>
-    <a v-bind:href="'edicionley.html?law_id='+law.id" class="btn btn-primary">Editar/Eliminar</a>
+    <h5 class="card-title">{{usuario.usuario_nombre}}</h5>
+    <a v-bind:href="'edicionusuario.html?user_id='+usuario.id_usuario" class="btn btn-primary">Editar/Eliminar</a>
     
   </div>
 </div>

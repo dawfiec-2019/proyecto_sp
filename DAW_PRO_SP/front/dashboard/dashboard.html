@@ -69,7 +69,7 @@
 				<img src="users/admin.png" class="img-responsive" alt="">
 			</div>
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Alberto Espinoza</div>
+				<div class="profile-usertitle-name">Miguel Rivas</div>
 				
 			</div>
 			<div class="clear"></div>
@@ -77,7 +77,7 @@
 		<div class="divider"></div>
 		
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Resumen</a></li>
+			<li class="active"><a href="dashboard.html"><em class="fa fa-dashboard">&nbsp;</em> Resumen</a></li>
 			<li><a href="insertacion.html"><em class="fa fa-plus">&nbsp;</em> Insertacion</a></li>
 			<li><a href="leyes.html"><em class="fa fa-file-text">&nbsp;</em> Leyes</a></li>
 			<li><a href="comentarios.html"><em class="fa fa-comments">&nbsp;</em> Comentarios</a></li>
@@ -89,7 +89,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#">
+				<li><a href="dashboard.html">
 					<em class="fa fa-home"></em>
 				</a></li>
 				<li class="active">Resumen</li>
@@ -187,53 +187,7 @@
 				</div>
 			</div>
 		</div><!--/.row-->
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default chat">
-					<div class="panel-heading">
-						Comentarios
-						
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-					<div class="panel-body">
-						<ul>
-							<li class="left clearfix"><span class="chat-img pull-left">
-								<img src="../images/ginger.jpg" alt="User Avatar" class="img-circle" />
-								</span>
-								<div class="chat-body clearfix">
-									<div class="header"><strong class="primary-font">Ginger Saltos, MSc.</strong> <small class="text-muted">hace 20 minutos</small></div>
-									<p>							Oe está chevere esta página, no sé por qué estos no hicieron un trabajo así en bases.
-</p>
-								</div>
-							</li>
-							<li class="right clearfix"><span class="chat-img pull-right">
-								<img src="../images/allan.jpg" alt="User Avatar" class="img-circle" />
-								</span>
-								<div class="chat-body clearfix">
-									<div class="header"><strong class="pull-left primary-font">Allan Avendaño</strong> <small class="text-muted">hace 10 minutos</small></div>
-									<p>Positivooooooooooooooo! Les voy a poner 100.</p>
-								</div>
-							</li>
-							<li class="left clearfix"><span class="chat-img pull-left">
-								<img src="../images/Karen.jpg" alt="User Avatar" class="img-circle" />
-								</span>
-								<div class="chat-body clearfix">
-									<div class="header"><strong class="primary-font">Karen Bermúdez</strong> <small class="text-muted">hace 5 minutos</small></div>
-									<p>Gracias profesor. Quiero ser su ayudante el siguiente semestre. Usted es el mejor, aunque eso se lo digo a todos los profesores.</p>
-								</div>
-							</li>
-							<li class="right clearfix"><span class="chat-img pull-right">
-								<img src="../images/eduardo.jpg" alt="User Avatar" class="img-circle" />
-								</span>
-								<div class="chat-body clearfix">
-									<div class="header"><strong class="primary-font">Eduardo Cruz</strong> <small class="text-muted">hace 1 minuto</small></div>
-									<p>👀📷</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div><!--/.col-->
+		<!--/.col-->
 			
 			
 			<!--<div class="col-md-6">
@@ -318,7 +272,8 @@
 				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
 			</div>
 		</div><!--/.row-->
-	</div>	<!--/.main-->
+	</div>	
+</svg><!--/.main-->
 	</div>
 	
 	<script src="js/jquery-1.11.1.min.js"></script>
@@ -335,8 +290,20 @@
 	<script src="https://unpkg.com/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script >
+	
 
 
+const margin = 60;
+const width = 1000 - 2 * margin;
+const height = 600 - 2 * margin;
+const svg = d3.select('svg');
+
+
+
+
+</script>
 	
 
  -->

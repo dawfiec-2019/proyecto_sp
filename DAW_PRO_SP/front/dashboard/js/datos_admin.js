@@ -39,7 +39,7 @@ var principal = new Vue({
                 numero_leyes:"",
                 numero_votos:"",
                 votos:[],
-                cometarios:[],
+                comentarios:[],
                 numero_comentarios:"",
                 usuarios:[],
                 numero_usuarios:"",
@@ -82,8 +82,10 @@ var principal = new Vue({
 
                 const path = 'http://localhost:8000/api/v1.0/comentario/';
                 axios.get(path).then((response)=> {
-                    this.comentario = response.data;
-                    this.numero_comentarios = this.comentario.length;
+                    this.comentarios = response.data;
+                    //console.log(response.data)
+                    //console.log(this.comentarios);
+                    this.numero_comentarios = this.comentarios.length;
                     //console.log(this.rate_user);
                     //console.log(this.votos);
                     //console.log(response.data);
@@ -100,6 +102,7 @@ var principal = new Vue({
                 axios.get(path).then((response)=> {
                     this.usuarios = response.data;
                     this.numero_usuarios = this.usuarios.length;
+                    //console.log(this.usuarios)
                     //console.log(this.rate_user);
                     //console.log(this.votos);
                     //console.log(response.data);
