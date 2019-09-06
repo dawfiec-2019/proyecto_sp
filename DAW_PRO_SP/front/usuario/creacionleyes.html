@@ -104,7 +104,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Editar ley</h1>
+				<h1 class="page-header">Crear ley</h1>
 			</div>
 		</div><!--/.row-->
 				
@@ -182,11 +182,10 @@
 
 							<div class="rows">
 								<div class="col text-left">
-									<button type="submit" class="btn btn-primary">Editar</button>
+									<button type="submit" class="btn btn-primary">Crear</button>
 
 									<a class="btn btn-secondary" href="leyes.html" role="button">Cancelar</button>
 
-									<button type="submit" class="btn btn-danger" v-on:click="deleteLaw">Eliminar</button>
 
 								</div>
 
@@ -264,12 +263,12 @@
         },*/
         created: function(){
             //console.log(this.leyes)
-            this.getLaws();
-            this.getVotes();
-            this.getComments();
-            this.getUsers();
-            this.getURL();
-            console.log(this.data);
+            // this.getLaws();
+            // this.getVotes();
+            // this.getComments();
+            // this.getUsers();
+            // this.getURL();
+            // console.log(this.data);
 
         },
         data:{
@@ -306,9 +305,10 @@
         		evt.preventDefault()
 
 
-        		const path = 'http://localhost:8000/api/laws/'+this.getURL()+'/';
+        		const path = 'http://localhost:8000/api/laws/';
+        		// console.log(path)
 
-                console.log(path);
+          //       console.log(path);
                 form={
 
                 	id : this.id_ley,
@@ -319,101 +319,22 @@
 
                 }
 
-                axios.put(path,{pub_date:form.fe}).then((response)=> {
-                    //this.laws = response.data;
-                    //this.numero_leyes = this.laws.length;
-                    //console.log(this.rate_user);
-                    //console.log(this.laws);
-                    //console.log(this.fecha);
-                    // console.log(this.nombre_oficial);
-                    // console.log(this.fecha);
-                    // this.id_ley= response.data.id;
-                    // this.nombre_oficial = response.data.name;
-                    // //this.nombre_publico = response.data.nombre_oficial;
-                    // this.fecha = response.data.pub_date;
-                    // this.descripcion = response.data.description;
-                    // form.id = response.data.id_ley;
-                    // form.nom = response.data.nombre_oficial;
-                    // form.pub = response.data.nombre_publico;
-                    // response.data.fecha= form.fe  ;
-                    // form.des = response.data.descripcion;
-                    // //console.log(response.data);
-                    //console.log(this.numero_leyes);
-                    //this.getRates();
-                    //alert("Ley actualizada de forma exitosa!");
+                axios.post(path,{id:form.id,name:form.nom,description:form.des,pub_date:form.fe}).then((response)=> {
                     console.log(response);
                 })
                 .catch((error)=>{
                     console.log(error)
                 });
-                //console.log(this.fecha);
-                //console.log(data.fecha)
 
-                /*axios.put(path,{pub_date:form.fe}).then((response)=> {*/
-                    //this.laws = response.data;
-                    //this.numero_leyes = this.laws.length;
-                    //console.log(this.rate_user);
-                    //console.log(this.laws);
-                    //console.log(this.fecha);
-                    // console.log(this.nombre_oficial);
-                    // console.log(this.fecha);
-                    // this.id_ley= response.data.id;
-                    // this.nombre_oficial = response.data.name;
-                    // //this.nombre_publico = response.data.nombre_oficial;
-                    // this.fecha = response.data.pub_date;
-                    // this.descripcion = response.data.description;
-                    /*form.id = response.data.id_ley;
-                    form.nom = response.data.nombre_oficial;
-                    form.pub = response.data.nombre_publico;
-                    response.data.fecha= form.fe  ;
-                    form.des = response.data.descripcion;
-                    //console.log(response.data);
-                    //console.log(this.numero_leyes);
-                    //this.getRates();
-                    //alert("Ley actualizada de forma exitosa!");
+                const pathsql = 'http://localhost:8000/api/v1.0/ley/';
+        		console.log(path)
+
+                axios.post(pathsql,{id_ley:form.id,nombre_oficial:form.nom,nombre_publico:form.nom,descripcion:form.des,fecha:form.fe}).then((response)=> {
                     console.log(response);
                 })
                 .catch((error)=>{
                     console.log(error)
                 });
-*/
-
-                const pathsql = `http://localhost:8000/api/v1.0/ley/`+this.getURL()+`/`;
-/*
-                form={
-
-                	id : this.id_ley,
-             nom : this.nombre_oficial,
-             pub : this.nombre_publico,
-             fe : this.fecha,
-             des : this.descripcion
-
-                }*/
-                console.log(form.nom)
-
-
-                /*axios.put(pathsql,{id_ley:form.id_ley,nombre_oficial:form.nombre_publico,fecha:'nos',descripcion:form.descripcion}).then((response)=> {
-                    //this.laws = response.data;
-                    //this.numero_leyes = this.laws.length;
-                    //console.log(this.rate_user);
-                    //console.log(this.laws);
-                    form.id = response.data.id_ley;
-                    form.nom = response.data.nombre_oficial;
-                    form.pub = response.data.nombre_publico;
-                    form.fe = response.data.fecha;
-                    form.des = response.data.descripcion;
-                    //console.log(response.data);
-                    //console.log(this.numero_leyes);
-                    //this.getRates();
-                    //alert("Ley actualizada de forma exitosa!");
-                    console.log(response)
-                })
-                .catch((error)=>{
-                    console.log(error)
-                });*/
-
-
-
 
         	},
 
@@ -493,18 +414,18 @@
                     console.log(error)
                 });
 
-				const path2 = 'http://localhost:8000/api/v1.0/ley/'+this.getURL()+'';
+				// const path = 'http://localhost:8000/api/v1.0/ley/'+this.getURL()+'';
 
-            	axios.delete(path2).then((response)=> {
-                    location.href = 'leyes.html'
-                    //console.log(this.rate_user);
-                    //console.log(this.votos);
-                    //console.log(response.data);
-                    //this.getRates();
-                })
-                .catch((error)=>{
-                    console.log(error)
-                });
+    //         	axios.delete(path).then((response)=> {
+    //                 location.href = 'leyes.html'
+    //                 //console.log(this.rate_user);
+    //                 //console.log(this.votos);
+    //                 //console.log(response.data);
+    //                 //this.getRates();
+    //             })
+    //             .catch((error)=>{
+    //                 console.log(error)
+    //             });
 
 
                 //5d6e0753820d2806bf55a1a1
@@ -540,25 +461,7 @@
     });
     
 
-
-    
-
-
-
-
-
-
 	</script>
-
-
-	
-
- 
-
-
-
- 	
-
 
 
 </body>

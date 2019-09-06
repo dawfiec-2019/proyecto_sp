@@ -493,9 +493,9 @@
                     console.log(error)
                 });
 
-				const path2 = 'http://localhost:8000/api/v1.0/ley/'+this.getURL()+'';
+				const path = 'http://localhost:8000/api/v1.0/ley/'+this.getURL()+'';
 
-            	axios.delete(path2).then((response)=> {
+            	axios.delete(path).then((response)=> {
                     location.href = 'leyes.html'
                     //console.log(this.rate_user);
                     //console.log(this.votos);

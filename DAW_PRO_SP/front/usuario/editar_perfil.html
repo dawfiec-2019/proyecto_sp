@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Resumen</title>
+<link href="css/dashboard.css" type="text/css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css"> -->
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="principal">		
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="dashboard.html"><div class="logo">Govern<span>.</span>US</div></a>
+				<ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-envelope"></em><span class="label label-danger">1</span>
+					</a>
+						<ul class="dropdown-menu dropdown-messages">
+							<li>
+								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
+									<img alt="image" class="img-circle" src="../images/ginger.jpg">
+									</a>
+									<div class="message-body"><small class="pull-right">3 mins ago</small>
+										<a href="#"><strong>Ginger Saltos, MSc.</strong> realizo un comentario en el post de <strong>La Ley de Organica de las Personas Adultas Mayores</strong>.</a>
+									<br /><small class="text-muted">1:24 pm - 25/03/2015</small></div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="all-button"><a href="#">
+									<em class="fa fa-comments-o"></em> <strong>Todos los comentarios</strong>
+								</a></div>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-bell"></em><span class="label label-info">1</span>
+					</a>
+						<ul class="dropdown-menu dropdown-alerts">
+							<li><a href="#">
+								<div><em class="fa fa-heart"></em> 25 New Likes
+									<span class="pull-right text-muted small">4 mins ago</span></div>
+							</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="users/admin.png" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">Miguel Rivas</div>
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		
+		<ul class="nav menu">
+			<li><a href="index-usuario.html"><em class="fa fa-dashboard">&nbsp;</em> Resumen</a></li>
+			<li  class="active"><a href="editar_perfil.html"><em class="fa fa-plus">&nbsp;</em> Editar Perfil</a></li>
+			<li><a href="leyes.html"><em class="fa fa-file-text">&nbsp;</em> Leyes</a></li>
+			<li><a href="comentarios.html"><em class="fa fa-comments">&nbsp;</em> Comentarios</a></li>
+			<li><a href="usuarios.html"><em class="fa fa-users	">&nbsp;</em> Usuarios</a></li>	
+			<li><a href="../index.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="index-usuario.html">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Perfil</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Perfil de usuario</h1>
+			</div>
+		</div><!--/.row-->
+		
+		<!--/.col-->
+<
+		<form @submit="onSubmit">
+
+
+							<div clas="col-sm-6">
+								<label for="usuario" class="col-sm-6">
+									Usuario
+								</label>
+								<div class="col-sm-6">
+									<input type="text" name="usuario" placeholder="Usuario" rows="3" class="form-control" v-model="usuario">
+
+								</div>
+								
+							</div>
+
+
+
+							<div clas="col-sm-6">
+								<label for="nombre" class="col-sm-6">
+									Nombre del Usuario
+								</label>
+								<div class="col-sm-6">
+									<textarea name="nombre" placeholder="Nombre del Usuario" rows="3" class="form-control" v-model="nombre"></textarea>
+
+								</div>
+								
+							</div>
+
+							<div clas="col-sm-6">
+								<label for="nombre" class="col-sm-6">
+									Apellido del usuario
+								</label>
+								<div class="col-sm-6">
+									<textarea name="apellido" placeholder="Apellido del Usuario" rows="3" class="form-control" v-model="apellido" ></textarea>
+
+								</div>
+								
+							</div>
+
+							<div clas="col-sm-6">
+								<label for="correo" class="col-sm-6">
+									Correo
+								</label>
+								<div class="col-sm-6">
+									<textarea name="correo" placeholder="Correo de usuario" rows="3" class="form-control" v-model="correo" ></textarea>
+
+								</div>
+								
+							</div>
+
+
+
+
+							<div class="rows">
+								<div class="col text-left">
+									<button type="submit" class="btn btn-primary">Editar</button>
+
+									<a class="btn btn-secondary" href="leyes.html" role="button">Cancelar</button>
+
+									<button type="submit" class="btn btn-danger">Eliminar</button>
+
+								</div>
+
+							</div>
+							
+
+
+						</form>
+		
+			
+			
+			<div class="col-sm-12">
+				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+			</div>
+		</div><!--/.row-->
+	</div>	
+<!--/.main-->
+	
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script>
+		
+		var principal = new Vue({
+        el:'#principal',
+    //import axios from 'axios';
+        /*beforeCreate: function(){
+            console.log("a")
+            //console.log("as");
+            this.$nextTick(function(){
+                const path = 'http://localhost:8000/api/laws/';
+                axios.get(path).then(function(response){
+                    console.log("a")
+                    this.laws = response.data;
+                    //this.laws = this.laws[0]
+                    //console.log(this.rate_user);
+                    console.log(this.laws);
+                    //console.log(this.laws[0])
+                    //console.log(this.leyes.length);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            }) 
+        },*/
+        created: function(){
+            //console.log(this.leyes)
+            this.getUser();
+
+        },
+        data:{
+        	usuario:'',
+        	contra:'',
+             nombre:'Default',
+             apellido:'Default',
+             correo:'',
+             id_persona:'',
+   
+
+        },
+        methods:{
+
+        	getURL(){
+
+        		let sPageURL = window.location.search.substring(1);
+    			let sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == 'user_id')
+        {
+        	console.log(sParameterName[1]);
+            return sParameterName[1];
+        }
+    		}
+
+
+
+        	},
+
+
+
+        	onSubmit(evt){
+        		evt.preventDefault()
+
+
+        		const path = 'http://localhost:8000/api/v1.0/usuario/'+this.getURL()+'/';
+
+                console.log(path);
+                form={
+              us:this.usuario,
+             nom: this.nombre,
+             ape : this.apellido,
+             cor : this.correo,
+             id : this.id_persona,
+             cont :this.contra
+                }
+
+                axios.put(path,{id_usuario:this.getURL(),contrasena: form.cont, usuario_nombre:form.us, id_persona:form.id}).then((response)=> {
+                    console.log(response);
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+
+               
+        	},
+
+            getUser: function(){
+            	console.log(this.getURL());
+
+                const path = 'http://localhost:8000/api/v1.0/usuario/1';
+
+                console.log(path);
+
+
+                axios.get(path).then((response)=> {
+                    this.usuario = response.data.usuario_nombre;
+                    this.contra = response.data.contrasena;
+                    console.log(response.data)
+                    this.getPersona();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+
+            },
+
+            getPersona: function(id){
+
+            	const path = 'http://localhost:8000/api/v1.0/persona/1/';
+
+                console.log(path);
+
+
+                axios.get(path).then((response)=> {
+                    //this.usuario = response.data.usuario_nombre;
+                    this.nombre = response.data.nombre;
+                    this.apellido = response.data.apellido;
+                    this.correo = response.data.correo;
+                    this.id_persona = response.data.id_persona
+                    console.log(response.data)
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+
+
+            }
+            ,
+            getVotes: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/voto/';
+                axios.get(path).then((response)=> {
+                    this.votos = response.data;
+                    this.numero_votos = this.votos.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    //console.log(this.numero_votos);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+
+            },
+            getComments: function(){
+
+                const path = 'http://localhost:8000/api/v1.0/comentario/';
+                axios.get(path).then((response)=> {
+                    this.comentario = response.data;
+                    this.numero_comentarios = this.comentario.length;
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    console.log(this.numero_comentarios.length);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+            },
+            deleteUser(){
+
+
+            	const path = 'http://localhost:8000/api/v1.0/usuario/'+this.getURL()+'/';
+
+            	axios.delete(path).then((response)=> {
+                    location.href = 'usuarios.html'
+                    //console.log(this.rate_user);
+                    //console.log(this.votos);
+                    //console.log(response.data);
+                    //this.getRates();
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+
+				// const path = 'http://localhost:8000/api/v1.0/ley/'+this.getURL()+'';
+
+    //         	axios.delete(path).then((response)=> {
+    //                 location.href = 'leyes.html'
+    //                 //console.log(this.rate_user);
+    //                 //console.log(this.votos);
+    //                 //console.log(response.data);
+    //                 //this.getRates();
+    //             })
+    //             .catch((error)=>{
+    //                 console.log(error)
+    //             });
+
+
+                //5d6e0753820d2806bf55a1a1
+
+
+            }
+        }
+        ,computed: {
+          searchlaw: function(){
+            //console.log(this.laws)
+            return this.laws.filter((law)=> law.name.includes(this.name));
+          }
+      },
+      numleyes: function(){
+        return this.laws.length
+      }
+    });
+    
+
+
+    
+
+
+
+
+
+
+	</script>
+	
+
+ 
+
+
+
+ 	<script src="js/datos_admin.js"></script>
+	
+</body>
+</html>
